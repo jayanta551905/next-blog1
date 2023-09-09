@@ -34,7 +34,7 @@ export default function Register() {
       toast.success(data.success);
       setLoading(false);
       router.push("/login");
-    } catch (err) {
+    } catch (error) {
       console.log(err);
       setLoading(false);
       toast.error("An error occurred. Try again.");

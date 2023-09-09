@@ -1,6 +1,7 @@
-import TopNav from "@/components/TopNav";
+import TopNav from "@/app/components/TopNav";
 import "./globals.css";
 import "bootstrap-material-design/dist/css/bootstrap-material-design.css";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata = {
   title: "Next full first",
@@ -11,8 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <TopNav />
-        {children}
+        <SessionProvider>
+          <TopNav />
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );

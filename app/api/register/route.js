@@ -11,9 +11,10 @@ export async function POST(req) {
     // check if user exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
+      console.log("user exists");
       return NextResponse.json(
         {
-          error: "User already exists",
+          err: "User already exists",
         },
         {
           status: 409,
@@ -23,17 +24,17 @@ export async function POST(req) {
       await new User({
         name,
         email,
-        password: await bcrypt.hash(password, 10),
+        password,
       }).save();
       return NextResponse.json({
         success: "User created successfully",
       });
     }
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    console.log(err);
     return NextResponse.json(
       {
-        error: "Server error an ocorded",
+        err: "Server error an ocorded",
       },
       {
         status: 500,

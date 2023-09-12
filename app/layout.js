@@ -1,3 +1,4 @@
+"use client";
 import TopNav from "@/app/components/TopNav";
 import "./globals.css";
 import "bootstrap-material-design/dist/css/bootstrap-material-design.css";
